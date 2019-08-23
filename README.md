@@ -1,3 +1,3 @@
 # Cproject
 # code by mec505
-Create cc.txt same directory of the python file
+Create cc.txt file before run the checker to tok same directory of the python file
