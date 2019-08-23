@@ -1,5 +1,5 @@
 #!usr/bin/python3
-# checker
+# checker code by MeC505
 def checker(card):
 	cc = card
 	odd = 0
