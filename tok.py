@@ -38,7 +38,8 @@ def tok(c1, cvv1, m1, y1):
 	ids = idy.get("credit_card_id")
 	status = idy.get("state")
 	print("====================================================> ",count)
-	print("Credit card id:",ids,"status",status)
+	print("credit card:", c1)
+	print("Credit card id:", ids,"status", status)
 
 	return ids
 
