@@ -31,13 +31,13 @@ def tok(c1, cvv1, m1, y1):
 		"device_token":"608b2061-c910-4e10-bc19-ee5b1279c37a" }
 
 	global ids
-	#print(data)
 	url = "https://www.wepayapi.com/v2/credit_card/create"
 	resp = requests.post(url, headers=header, json=data)
 	son = resp.text
 	idy = json.loads(son)
-	ids = idy["credit_card_id"]
-	status = idy["state"]
+	ids = idy.get("credit_card_id")
+	status = idy.get("state")
+	print("====================================================> ",count)
 	print("Credit card id:",ids,"status",status)
 
 	return ids
@@ -67,7 +67,6 @@ def check_live():
 	if result["success"] == True:
 		print("success:", result["success"])
 		print("payment:", result["error"])
-		print("====================================================>")
 		s = open(path+"/success.txt", "a")
 		s.write(c1)
         	s.write("|")
@@ -78,11 +77,15 @@ def check_live():
         	s.write(yy)
         	s.write("|")
         	s.write(cvv1)
-        	s.write("\n")
+		s.write("|")
+                s.write(result["error"])
+                s.write("|")
+                s.write(count)
+                s.write("\n")
+
 	else:
 		print("success:", result["success"])
 		print("payment:", result["error"])
-		print("====================================================>")
 
 	return result
 
@@ -91,9 +94,12 @@ def main():
 	global cvv1
 	global m1
 	global y1
+	global count
 	path = os.getcwd()
+	count = 0
 	cc = open(path+"/valid.txt", "r")
 	for i in cc:
+		count += 1
 		c = ""
 		cvv = ""
 		m = ""
