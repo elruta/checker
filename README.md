@@ -1,4 +1,4 @@
 # Cproject
 # Code by MeC505
-Update the injection post!!!
-Create cc.txt file before run the checker to tok same directory of the python file
+Load a updated post request data!!!
+Create cc.txt file same directory of python file before run the checker.py to tok.py 
